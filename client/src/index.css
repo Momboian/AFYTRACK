@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper text-ink font-sans antialiased; }
+  :focus-visible { @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-paper; }
+}
+@layer components {
+  .input { @apply w-full rounded-lg border border-line bg-white px-3 py-2.5 text-[15px] text-ink placeholder:text-ink-faint focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition; }
+  .input-error { @apply border-red-400 focus:border-red-500 focus:ring-red-100; }
+  .label { @apply mb-1 block text-[13px] font-semibold text-ink-soft; }
+  .card { @apply rounded-xl border border-line bg-white shadow-card; }
+  .tbl { @apply w-full text-left text-sm; }
+  .tbl th { @apply whitespace-nowrap border-b border-line bg-paper/60 px-3 py-2.5 text-[12px] font-semibold uppercase tracking-wide text-ink-faint; }
+  .tbl td { @apply border-b border-line/70 px-3 py-3 align-top; }
+  .tbl tr:last-child td { @apply border-b-0; }
+  .tbl tbody tr { @apply transition-colors; }
+  .tbl tbody tr.clickable:hover { @apply cursor-pointer bg-brand-50/50; }
+}
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .print-area { box-shadow: none !important; border: none !important; }
+}
